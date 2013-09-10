@@ -1,11 +1,9 @@
-require_relative 'bob_test'
-
 class Bob
 	
 	def hey(string)
 		if string_is_empty?(string)
 			"Fine. Be that way!"		
-		elsif all_caps(string)
+		elsif string_has_all_caps?(string)
 			"Woah, chill out!" 
 		elsif string_ends_in_a_question_mark?(string)
 			"Sure."
@@ -15,12 +13,10 @@ class Bob
 	end
 
 	def string_is_empty?(string)
-		string.empty?
+		string.gsub(" ", "").empty?
 	end
 
-
-	#change to 'all_caps?'
-	def all_caps(string)
+	def string_has_all_caps?(string)
 		string == string.upcase
 	end
 
@@ -31,5 +27,3 @@ class Bob
 
 
 end
-
-teenager = Bob.new
